@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  load_balancer:
+    image: nginx:latest
+    container_name: nginx_load_balancer
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - app1
+      - app2
+      - app3
+      - app4
+      - app5
+
+  app1:
+    image: my/jobeinabox
+    container_name: jobe_instance_1
+
+  app2:
+    image: my/jobeinabox
+    container_name: jobe_instance_2
+
+  app3:
+    image: my/jobeinabox
+    container_name: jobe_instance_3
+
+  app4:
+    image: my/jobeinabox
+    container_name: jobe_instance_4
+
+  app5:
+    image: my/jobeinabox
+    container_name: jobe_instance_5
+
