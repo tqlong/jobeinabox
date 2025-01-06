@@ -14,6 +14,21 @@ services:
       - app3
       - app4
       - app5
+      - app6
+      - app7
+      - app8
+      - app9
+      - app10
+      # - app11
+      # - app12
+      # - app13
+      # - app14
+      # - app15
+      # - app16
+      # - app17
+      # - app18
+      # - app19
+      # - app20
 
   app1:
     image: my/jobeinabox
@@ -35,3 +50,62 @@ services:
     image: my/jobeinabox
     container_name: jobe_instance_5
 
+  app6:
+    image: my/jobeinabox
+    container_name: jobe_instance_6
+
+  app7:
+    image: my/jobeinabox
+    container_name: jobe_instance_7
+
+  app8:
+    image: my/jobeinabox
+    container_name: jobe_instance_8
+
+  app9:
+    image: my/jobeinabox
+    container_name: jobe_instance_9
+
+  app10:
+    image: my/jobeinabox
+    container_name: jobe_instance_10
+
+  # app11:
+  #   image: my/jobeinabox
+  #   container_name: jobe_instance_11
+
+  # app12:
+  #   image: my/jobeinabox
+  #   container_name: jobe_instance_12
+
+  # app13:
+  #   image: my/jobeinabox
+  #   container_name: jobe_instance_13
+
+  # app14:
+  #   image: my/jobeinabox
+  #   container_name: jobe_instance_14
+
+  # app15:
+  #   image: my/jobeinabox
+  #   container_name: jobe_instance_15
+
+  # app16:
+  #   image: my/jobeinabox
+  #   container_name: jobe_instance_16
+
+  # app17:
+  #   image: my/jobeinabox
+  #   container_name: jobe_instance_17
+
+  # app18:
+  #   image: my/jobeinabox
+  #   container_name: jobe_instance_18
+
+  # app19:
+  #   image: my/jobeinabox
+  #   container_name: jobe_instance_19
+
+  # app20:
+  #   image: my/jobeinabox
+  #   container_name: jobe_instance_20
