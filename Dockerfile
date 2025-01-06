@@ -65,6 +65,8 @@ COPY 000-jobe.conf /
 # Copy test script
 COPY container-test.sh /
 
+COPY jobe /jobe
+
 RUN pylint --reports=no --score=n --generate-rcfile > /etc/pylintrc && \
     ln -sf /proc/self/fd/1 /var/log/apache2/access.log && \
     ln -sf /proc/self/fd/1 /var/log/apache2/error.log && \
@@ -76,9 +78,14 @@ RUN pylint --reports=no --score=n --generate-rcfile > /etc/pylintrc && \
     mv /000-jobe.conf /etc/apache2/sites-enabled/ && \
     mkdir -p /var/crash && \
     chmod 777 /var/crash && \
-    echo '<!DOCTYPE html><html lang="en"><title>Jobe</title><h1>Jobe</h1></html>' > /var/www/html/index.html && \
-    git clone https://github.com/trampgeek/jobe.git /var/www/html/jobe && \
-    apache2ctl start && \
+    ls -al /jobe && \
+    echo '<!DOCTYPE html><html lang="en"><title>Jobe</title><h1>Jobe</h1></html>' > /var/www/html/index.html
+
+# RUN git clone https://github.com/trampgeek/jobe.git /var/www/html/jobe
+
+RUN cp -rf /jobe /var/www/html/
+
+RUN apache2ctl start && \
     cd /var/www/html/jobe && \
     if [ ! -z "${API_KEYS}" ]; then \
         sed -i 's/$require_api_keys = false/$require_api_keys = true/' /var/www/html/jobe/app/Config/Jobe.php && \
